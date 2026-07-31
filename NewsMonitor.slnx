@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NewsMonitor.API/NewsMonitor.API.csproj" />
+    <Project Path="src/NewsMonitor.Consumer/NewsMonitor.Consumer.csproj" />
+    <Project Path="src/NewsMonitor.Parser/NewsMonitor.Parser.csproj" />
+    <Project Path="src/NewsMonitor.Shared/NewsMonitor.Shared.csproj" />
+  </Folder>
+</Solution>

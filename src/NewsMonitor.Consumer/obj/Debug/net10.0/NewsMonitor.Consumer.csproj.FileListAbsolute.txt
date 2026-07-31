@@ -1,0 +1,15 @@
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\bin\Debug\net10.0\NewsMonitor.Consumer.deps.json
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\bin\Debug\net10.0\NewsMonitor.Consumer.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\bin\Debug\net10.0\NewsMonitor.Consumer.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\bin\Debug\net10.0\NewsMonitor.Shared.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\bin\Debug\net10.0\NewsMonitor.Shared.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.csproj.AssemblyReference.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.GeneratedMSBuildEditorConfig.editorconfig
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.AssemblyInfoInputs.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.AssemblyInfo.cs
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.csproj.CoreCompileInputs.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMoni.3206CFCC.Up2Date
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\refint\NewsMonitor.Consumer.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\NewsMonitor.Consumer.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Consumer\obj\Debug\net10.0\ref\NewsMonitor.Consumer.dll

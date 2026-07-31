@@ -1,0 +1,111 @@
+version: '3.8'
+
+networks:
+  newsmonitor-network:
+    driver: bridge
+
+services:
+  # PostgreSQL - основная база данных
+  postgres:
+    image: postgres:15
+    container_name: newsmonitor-postgres
+    environment:
+      POSTGRES_DB: newsmonitor
+      POSTGRES_USER: newsuser
+      POSTGRES_PASSWORD: newspassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - newsmonitor-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U newsuser -d newsmonitor"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # RabbitMQ - очередь сообщений с Management UI
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: newsmonitor-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: newsuser
+      RABBITMQ_DEFAULT_PASS: newspassword
+      RABBITMQ_DEFAULT_VHOST: newsmonitor
+    ports:
+      - "5672:5672"      # AMQP протокол
+      - "15672:15672"    # Management UI
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - newsmonitor-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Elasticsearch - хранение логов
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    container_name: newsmonitor-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - newsmonitor-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200/_cluster/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Kibana - визуализация логов
+  kibana:
+    image: kibana:8.11.0
+    container_name: newsmonitor-kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=somethingatleast32characterslong
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - newsmonitor-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5601/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # PgAdmin (опционально) - удобное управление PostgreSQL
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: newsmonitor-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@newsmonitor.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - newsmonitor-network
+
+volumes:
+  postgres-data:
+    driver: local
+  rabbitmq-data:
+    driver: local
+  elasticsearch-data:
+    driver: local
