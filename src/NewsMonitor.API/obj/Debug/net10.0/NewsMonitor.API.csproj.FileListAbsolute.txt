@@ -16,7 +16,7 @@ D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Hangfire.Postgre
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Hangfire.SqlServer.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Humanizer.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\MassTransit.dll
-D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\MassTransit.Abstractions.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\MassTransit.RabbitMqTransport.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
@@ -158,6 +158,7 @@ D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.csproj.CoreCompileInputs.cache
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.MvcApplicationPartsAssemblyInfo.cs
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.MvcApplicationPartsAssemblyInfo.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.sourcelink.json
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -173,3 +174,8 @@ D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\refint\NewsMonit
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.pdb
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.genruntimeconfig.cache
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\ref\NewsMonitor.API.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Automatonymous.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\GreenPipes.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\NewId.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll

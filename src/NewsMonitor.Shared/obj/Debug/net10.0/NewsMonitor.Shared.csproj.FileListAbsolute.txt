@@ -6,6 +6,7 @@ D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.S
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.AssemblyInfoInputs.cache
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.AssemblyInfo.cs
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.csproj.CoreCompileInputs.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.sourcelink.json
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\refint\NewsMonitor.Shared.dll
 D:\_PROJECTS\news monitor\src\NewsMonitor.Shared\obj\Debug\net10.0\NewsMonitor.Shared.pdb

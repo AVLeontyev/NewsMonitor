@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {}
+    "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {}
   },
   "projects": {
-    "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
+    "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
+        "projectUniqueName": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
         "projectName": "NewsMonitor.Shared",
-        "projectPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
+        "projectPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
         "packagesPath": "C:\\Users\\Ngasta\\.nuget\\packages\\",
-        "outputPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\obj\\",
+        "outputPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ngasta\\AppData\\Roaming\\NuGet\\NuGet.Config",

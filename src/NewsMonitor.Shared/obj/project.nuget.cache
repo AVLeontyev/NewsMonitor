@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RBg7gsCzv9c=",
+  "dgSpecHash": "xD455ssg7xc=",
   "success": true,
-  "projectFilePath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
+  "projectFilePath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ngasta\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.10\\microsoft.entityframeworkcore.10.0.10.nupkg.sha512",
     "C:\\Users\\Ngasta\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.10\\microsoft.entityframeworkcore.abstractions.10.0.10.nupkg.sha512",

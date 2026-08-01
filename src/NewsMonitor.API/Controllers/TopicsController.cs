@@ -1,6 +1,8 @@
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NewsMonitor.API.Data;  // <-- Изменено
+using NewsMonitor.API.Data;
+using NewsMonitor.Shared.Messages;
 using NewsMonitor.Shared.Models;
 
 namespace NewsMonitor.API.Controllers;
@@ -10,10 +12,12 @@ namespace NewsMonitor.API.Controllers;
 public class TopicsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public TopicsController(ApplicationDbContext context)
+    public TopicsController(ApplicationDbContext context, IPublishEndpoint publishEndpoint)
     {
         _context = context;
+        _publishEndpoint = publishEndpoint;
     }
 
     // GET: api/topics
@@ -56,6 +60,15 @@ public class TopicsController : ControllerBase
 
         _context.Topics.Add(topic);
         await _context.SaveChangesAsync();
+
+        // Отправляем событие через MassTransit
+        await _publishEndpoint.Publish(new NewsCreatedEvent
+        {
+            NewsId = topic.Id,
+            Title = $"New topic created: {topic.Name}",
+            Topic = topic.Name,
+            PublishedAt = DateTime.UtcNow
+        });
 
         return CreatedAtAction(nameof(GetById), new { id = topic.Id }, topic);
     }

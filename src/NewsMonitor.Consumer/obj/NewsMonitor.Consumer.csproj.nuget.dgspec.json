@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj": {}
+    "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj": {}
   },
   "projects": {
-    "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj": {
+    "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj",
+        "projectUniqueName": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj",
         "projectName": "NewsMonitor.Consumer",
-        "projectPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj",
+        "projectPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Consumer\\NewsMonitor.Consumer.csproj",
         "packagesPath": "C:\\Users\\Ngasta\\.nuget\\packages\\",
-        "outputPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Consumer\\obj\\",
+        "outputPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Consumer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ngasta\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
-                "projectPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj"
+              "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
+                "projectPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj"
               }
             }
           }
@@ -52,19 +52,27 @@
           "dependencies": {
             "MassTransit": {
               "target": "Package",
-              "version": "[9.2.0, )"
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
             },
             "MassTransit.RabbitMQ": {
               "target": "Package",
-              "version": "[9.2.0, )"
+              "version": "[7.3.1, )"
             },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
-              "version": "[10.0.10, )"
+              "version": "[7.0.0, )"
             },
-            "Serilog.Sinks.Elasticsearch": {
+            "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -361,14 +369,14 @@
         }
       }
     },
-    "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
+    "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
+        "projectUniqueName": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
         "projectName": "NewsMonitor.Shared",
-        "projectPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
+        "projectPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\NewsMonitor.Shared.csproj",
         "packagesPath": "C:\\Users\\Ngasta\\.nuget\\packages\\",
-        "outputPath": "D:\\_PROJECTS\\News Monitor\\src\\NewsMonitor.Shared\\obj\\",
+        "outputPath": "D:\\_PROJECTS\\news monitor\\src\\NewsMonitor.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ngasta\\AppData\\Roaming\\NuGet\\NuGet.Config",

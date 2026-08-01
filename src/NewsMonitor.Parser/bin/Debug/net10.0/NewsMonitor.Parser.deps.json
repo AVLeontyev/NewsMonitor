@@ -725,6 +725,8 @@
       },
       "NewsMonitor.Shared/1.0.0": {
         "dependencies": {
+          "MassTransit": "9.2.0",
+          "MassTransit.RabbitMQ": "9.2.0",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.10"
         },
         "runtime": {

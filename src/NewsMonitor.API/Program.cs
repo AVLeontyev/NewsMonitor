@@ -1,8 +1,16 @@
+using Hangfire;
+using Hangfire.PostgreSql;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
-using NewsMonitor.API.Data;  // <-- Изменено: теперь Data в API проекте
-using NewsMonitor.Shared.Models;
+using NewsMonitor.API.Data;
+using NewsMonitor.Shared.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // Регистрация DbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -11,14 +19,28 @@ Console.WriteLine($"Connection String from config: {connectionString}");
 Console.WriteLine($"ASPNETCORE_ENVIRONMENT: {builder.Environment.EnvironmentName}");
 Console.WriteLine($"==================");
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Регистрация DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
+
+// Настройка MassTransit 7.x
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(new Uri("rabbitmq://localhost/newsmonitor"), h =>
+        {
+            h.Username("newsuser");
+            h.Password("newspassword");
+        });
+        
+        cfg.ConfigureEndpoints(context);
+    });
+});
+
+// Настройка Hangfire
+builder.Services.AddHangfire(config =>
+    config.UsePostgreSqlStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
@@ -32,5 +54,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+// Добавление Hangfire Dashboard
+app.UseHangfireDashboard("/hangfire");
 
 app.Run();
