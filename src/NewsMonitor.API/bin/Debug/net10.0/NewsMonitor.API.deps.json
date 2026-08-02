@@ -17,8 +17,9 @@
           "Microsoft.AspNetCore.OpenApi": "10.0.3",
           "Microsoft.EntityFrameworkCore": "10.0.10",
           "Microsoft.EntityFrameworkCore.Design": "10.0.10",
+          "NewsMonitor.Parser.Core": "1.0.0",
           "NewsMonitor.Shared": "1.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.0",
           "Serilog.AspNetCore": "10.0.0",
           "Serilog.Sinks.Elasticsearch": "10.0.0",
           "Swashbuckle.AspNetCore": "10.2.3"
@@ -165,7 +166,7 @@
           "Dapper": "2.0.123",
           "Dapper.AOT": "1.0.48",
           "Hangfire.Core": "1.8.24",
-          "Npgsql": "10.0.3"
+          "Npgsql": "10.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Hangfire.PostgreSql.dll": {
@@ -182,6 +183,14 @@
           "lib/netstandard2.0/Hangfire.SqlServer.dll": {
             "assemblyVersion": "1.8.24.0",
             "fileVersion": "1.8.24.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.72": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.72.0",
+            "fileVersion": "1.11.72.0"
           }
         }
       },
@@ -725,24 +734,24 @@
           }
         }
       },
-      "Npgsql/10.0.3": {
+      "Npgsql/10.0.0": {
         "runtime": {
           "lib/net10.0/Npgsql.dll": {
-            "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "10.0.10",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.10",
-          "Npgsql": "10.0.3"
+          "Npgsql": "10.0.0"
         },
         "runtime": {
           "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
-            "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
           }
         }
       },
@@ -1013,8 +1022,35 @@
           }
         }
       },
+      "System.ServiceModel.Syndication/7.0.0": {
+        "runtime": {
+          "lib/net7.0/System.ServiceModel.Syndication.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "NewsMonitor.Parser.Core/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.11.72",
+          "MassTransit": "7.3.1",
+          "MassTransit.RabbitMQ": "7.3.1",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "NewsMonitor.Shared": "1.0.0",
+          "System.ServiceModel.Syndication": "7.0.0"
+        },
+        "runtime": {
+          "NewsMonitor.Parser.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "NewsMonitor.Shared/1.0.0": {
         "dependencies": {
+          "MassTransit": "7.3.1",
+          "MassTransit.RabbitMQ": "7.3.1",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
           "Microsoft.EntityFrameworkCore.Relational": "10.0.10"
         },
         "runtime": {
@@ -1108,6 +1144,13 @@
       "sha512": "sha512-XyJO2+Mtag0E1Hxz6kvIFjCNuHHN31C0KjocI+j4IhSzxTCwl8EznjnYxrFTLXdoYfi3Ykhc0G4DzV9LOgHU1A==",
       "path": "hangfire.sqlserver/1.8.24",
       "hashPath": "hangfire.sqlserver.1.8.24.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.72": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RNLgXxTFdIGFI+o5l8c2aJ2L5StIRn9Uv8HKR76p7QP4ZUL26wzpWUCWh08xWUdkL2kocl+Xhv6VUu0rA1npVg==",
+      "path": "htmlagilitypack/1.11.72",
+      "hashPath": "htmlagilitypack.1.11.72.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -1326,19 +1369,19 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "Npgsql/10.0.3": {
+    "Npgsql/10.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7nb5YzXuvWWJxB0J8DiyL3we+X4FOctZrt0fIBnucOIaIevFEEwGQVZKtiu9olXdlNAK1eNgqSral6r/jlhI4w==",
-      "path": "npgsql/10.0.3",
-      "hashPath": "npgsql.10.0.3.nupkg.sha512"
+      "sha512": "sha512-xZAYhPOU2rUIFpV48xsqhCx9vXs6Y+0jX2LCoSEfDFYMw9jtAOUk3iQsCnDLrFIv9NT3JGMihn7nnuZsPKqJmA==",
+      "path": "npgsql/10.0.0",
+      "hashPath": "npgsql.10.0.0.nupkg.sha512"
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IPGrrZnRkuW7OlHDhUESZz4G5DLkW7Nej/O3Cx+0iTsgyU5XJxBgpsvTHLloo3WWuAKKbDHXBvWPVkX1deRh1Q==",
-      "path": "npgsql.entityframeworkcore.postgresql/10.0.3",
-      "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.3.nupkg.sha512"
+      "sha512": "sha512-E2+uSWxSB8LdsUVwPaqRWOcGOP92biry2JEwc0KJMdLJF+aZdczeIdEXVwEyv4nSVMQJH0o8tLhyAMiR6VF0lw==",
+      "path": "npgsql.entityframeworkcore.postgresql/10.0.0",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.0.nupkg.sha512"
     },
     "RabbitMQ.Client/6.2.2": {
       "type": "package",
@@ -1514,6 +1557,18 @@
       "sha512": "sha512-gqhDC/icByKEutygpr+OFgAmjwTVowyzFjWB8K0q1ww8uFj5a1BQNL+QvijUl9uhq4p8OdDwcAIrjVC+eC9FVA==",
       "path": "system.identitymodel.tokens.jwt/8.19.2",
       "hashPath": "system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512"
+    },
+    "System.ServiceModel.Syndication/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V3q1Jr3KWo+i201/vUUPfg83rjJLhL5+ROh16PtPhaUJRHwoEBoGWtg0r6pFBRPaDqNY6hXvNgHktDj0gvMEpA==",
+      "path": "system.servicemodel.syndication/7.0.0",
+      "hashPath": "system.servicemodel.syndication.7.0.0.nupkg.sha512"
+    },
+    "NewsMonitor.Parser.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "NewsMonitor.Shared/1.0.0": {
       "type": "project",

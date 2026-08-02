@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<News> News { get; set; }
     public DbSet<UserTopic> UserTopics { get; set; }
     public DbSet<Alert> Alerts { get; set; }
+    public DbSet<NewsSource> NewsSources { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

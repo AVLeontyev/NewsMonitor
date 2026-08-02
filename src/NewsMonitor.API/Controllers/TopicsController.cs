@@ -1,7 +1,7 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NewsMonitor.API.Data;
+using NewsMonitor.Shared.Data;
 using NewsMonitor.Shared.Messages;
 using NewsMonitor.Shared.Models;
 

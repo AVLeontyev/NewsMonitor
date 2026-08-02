@@ -1,0 +1,16 @@
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\bin\Debug\net10.0\NewsMonitor.Parser.Core.deps.json
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\bin\Debug\net10.0\NewsMonitor.Parser.Core.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\bin\Debug\net10.0\NewsMonitor.Parser.Core.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\bin\Debug\net10.0\NewsMonitor.Shared.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\bin\Debug\net10.0\NewsMonitor.Shared.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.csproj.AssemblyReference.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.AssemblyInfoInputs.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.AssemblyInfo.cs
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.csproj.CoreCompileInputs.cache
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.sourcelink.json
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMoni.08B9E9B1.Up2Date
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\refint\NewsMonitor.Parser.Core.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\NewsMonitor.Parser.Core.pdb
+D:\_PROJECTS\news monitor\src\NewsMonitor.Parser.Core\obj\Debug\net10.0\ref\NewsMonitor.Parser.Core.dll
