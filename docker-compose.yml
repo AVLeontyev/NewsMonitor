@@ -1,31 +1,35 @@
-version: '3.8'
-
 networks:
   newsmonitor-network:
     driver: bridge
 
+volumes:
+  postgres-data:
+  rabbitmq-data:
+  elasticsearch-data:
+
 services:
-  # PostgreSQL - основная база данных
+  # PostgreSQL
   postgres:
     image: postgres:15
     container_name: newsmonitor-postgres
     environment:
       POSTGRES_DB: newsmonitor
-      POSTGRES_USER: newsuser
-      POSTGRES_PASSWORD: newspassword
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - newsmonitor-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U newsuser -d newsmonitor"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  # RabbitMQ - очередь сообщений с Management UI
+  # RabbitMQ
   rabbitmq:
     image: rabbitmq:3.13-management
     container_name: newsmonitor-rabbitmq
@@ -34,8 +38,8 @@ services:
       RABBITMQ_DEFAULT_PASS: newspassword
       RABBITMQ_DEFAULT_VHOST: newsmonitor
     ports:
-      - "5672:5672"      # AMQP протокол
-      - "15672:15672"    # Management UI
+      - "5672:5672"
+      - "15672:15672"
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
     networks:
@@ -46,7 +50,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # Elasticsearch - хранение логов
+  # Elasticsearch
   elasticsearch:
     image: elasticsearch:8.11.0
     container_name: newsmonitor-elasticsearch
@@ -67,7 +71,7 @@ services:
       timeout: 10s
       retries: 5
 
-  # Kibana - визуализация логов
+  # Kibana
   kibana:
     image: kibana:8.11.0
     container_name: newsmonitor-kibana
@@ -87,7 +91,83 @@ services:
       timeout: 10s
       retries: 5
 
-  # PgAdmin (опционально) - удобное управление PostgreSQL
+  # API
+  api:
+    build:
+      context: .
+      dockerfile: src/NewsMonitor.API/Dockerfile
+    container_name: newsmonitor-api
+    ports:
+      - "5269:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=newsmonitor;User Id=postgres;Password=postgres;SSL Mode=Disable;
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__Username=newsuser
+      - RabbitMQ__Password=newspassword
+      - RabbitMQ__VirtualHost=newsmonitor
+      - Elasticsearch__Uri=http://elasticsearch:9200
+    networks:
+      - newsmonitor-network
+    restart: unless-stopped
+
+  # Parser
+  parser:
+    build:
+      context: .
+      dockerfile: src/NewsMonitor.Parser/Dockerfile
+    container_name: newsmonitor-parser
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=newsmonitor;User Id=postgres;Password=postgres;SSL Mode=Disable;
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__Username=newsuser
+      - RabbitMQ__Password=newspassword
+      - RabbitMQ__VirtualHost=newsmonitor
+      - Elasticsearch__Uri=http://elasticsearch:9200
+    networks:
+      - newsmonitor-network
+    restart: unless-stopped
+
+  # Consumer
+  consumer:
+    build:
+      context: .
+      dockerfile: src/NewsMonitor.Consumer/Dockerfile
+    container_name: newsmonitor-consumer
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__Username=newsuser
+      - RabbitMQ__Password=newspassword
+      - RabbitMQ__VirtualHost=newsmonitor
+      - Elasticsearch__Uri=http://elasticsearch:9200
+    networks:
+      - newsmonitor-network
+    restart: unless-stopped
+
+  # Pgadmin
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: newsmonitor-pgadmin
@@ -101,11 +181,4 @@ services:
         condition: service_healthy
     networks:
       - newsmonitor-network
-
-volumes:
-  postgres-data:
-    driver: local
-  rabbitmq-data:
-    driver: local
-  elasticsearch-data:
-    driver: local
+    restart: unless-stopped

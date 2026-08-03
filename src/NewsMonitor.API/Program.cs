@@ -10,6 +10,7 @@ using NewsMonitor.API.Services;
 using Serilog;
 using Serilog.Enrichers;
 using Serilog.Sinks.Elasticsearch;
+using Hangfire.Dashboard;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,10 +77,16 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host(new Uri("rabbitmq://localhost/newsmonitor"), h =>
+        var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "rabbitmq";
+        var rabbitPort = builder.Configuration["RabbitMQ:Port"] ?? "5672";
+        var rabbitUser = builder.Configuration["RabbitMQ:Username"] ?? "newsuser";
+        var rabbitPass = builder.Configuration["RabbitMQ:Password"] ?? "newspassword";
+        var rabbitVHost = builder.Configuration["RabbitMQ:VirtualHost"] ?? "newsmonitor";
+
+        cfg.Host(new Uri($"rabbitmq://{rabbitHost}:{rabbitPort}/{rabbitVHost}"), h =>
         {
-            h.Username("newsuser");
-            h.Password("newspassword");
+            h.Username(rabbitUser);
+            h.Password(rabbitPass);
         });
         
         cfg.ConfigureEndpoints(context);
@@ -96,6 +103,9 @@ var app = builder.Build();
 // Настройка Recurring Job
 using (var scope = app.Services.CreateScope())
 {
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    //await dbContext.Database.EnsureCreatedAsync();
+
     var recurringJobManager = scope.ServiceProvider.GetRequiredService<IRecurringJobManager>();
     var parserService = scope.ServiceProvider.GetRequiredService<NewsParserService>();
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
@@ -128,8 +138,16 @@ app.MapControllers();
 // SignalR
 app.MapHub<NewsHub>("/newshub");
 
-app.UseHangfireDashboard("/hangfire");
+// авторизация отключена
+app.UseHangfireDashboard("/hangfire", new DashboardOptions
+{
+    Authorization = new[] { new AllowAllAuthorizationFilter() } 
+});
 
 app.Run();
 
 Log.CloseAndFlush();
+public class AllowAllAuthorizationFilter : IDashboardAuthorizationFilter
+{
+    public bool Authorize(DashboardContext context) => true;
+}

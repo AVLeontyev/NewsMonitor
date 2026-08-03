@@ -13,7 +13,9 @@ public class HttpNotificationService : INotificationService
     {
         _logger = logger;
         _httpClient = new HttpClient();
-        _httpClient.BaseAddress = new Uri("http://localhost:5269");
+        
+        var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? "http://localhost:5269";
+        _httpClient.BaseAddress = new Uri(apiUrl);
         _httpClient.Timeout = TimeSpan.FromSeconds(5);
     }
 

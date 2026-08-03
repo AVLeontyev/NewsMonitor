@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" TEXT PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "Topics" (
+    "Id" UUID PRIMARY KEY,
+    "Name" TEXT NOT NULL,
+    "Keywords" TEXT,
+    "IsActive" BOOLEAN NOT NULL DEFAULT TRUE,
+    "CreatedAt" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
