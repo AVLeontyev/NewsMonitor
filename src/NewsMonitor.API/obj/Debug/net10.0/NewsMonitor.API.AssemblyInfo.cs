@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewsMonitor.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f87089d4f615c15cf699b2e5e6e6ff845b6f1b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb397465f219c9d64266bd986d17e92c78412f5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewsMonitor.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewsMonitor.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

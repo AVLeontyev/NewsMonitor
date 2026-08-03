@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using NewsMonitor.Shared.Data;
 using NewsMonitor.Shared.Messages;
 using NewsMonitor.Shared.Models;
+using NewsMonitor.Parser.Core.Services;
 
 namespace NewsMonitor.Parser.Core.Services;
 
@@ -15,17 +16,20 @@ public class NewsParserService
     private readonly IPublishEndpoint _publishEndpoint;
     private readonly ILogger<NewsParserService> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly INotificationService _notificationService;
 
     public NewsParserService(
         ApplicationDbContext context,
         IPublishEndpoint publishEndpoint,
         ILogger<NewsParserService> logger,
-        IHttpClientFactory httpClientFactory)
+        IHttpClientFactory httpClientFactory,
+        INotificationService notificationService) 
     {
         _context = context;
         _publishEndpoint = publishEndpoint;
         _logger = logger;
         _httpClientFactory = httpClientFactory;
+        _notificationService = notificationService;
     }
 
     private HttpClient CreateHttpClient()

@@ -183,3 +183,9 @@ D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\refint\NewsMonit
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.pdb
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\NewsMonitor.API.genruntimeconfig.cache
 D:\_PROJECTS\news monitor\src\NewsMonitor.API\obj\Debug\net10.0\ref\NewsMonitor.API.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.AspNetCore.SignalR.Client.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Serilog.Enrichers.Environment.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Serilog.Enrichers.Process.dll
+D:\_PROJECTS\news monitor\src\NewsMonitor.API\bin\Debug\net10.0\Serilog.Enrichers.Thread.dll

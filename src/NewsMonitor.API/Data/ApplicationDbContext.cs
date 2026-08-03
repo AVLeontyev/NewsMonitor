@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewsMonitor.Shared.Models;
 
 namespace NewsMonitor.API.Data;
@@ -20,6 +21,18 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            foreach (var property in entityType.GetProperties()
+                .Where(p => p.ClrType == typeof(DateTime) || p.ClrType == typeof(DateTime?)))
+            {
+                property.SetValueConverter(new ValueConverter<DateTime, DateTime>(
+                    v => DateTime.SpecifyKind(v, DateTimeKind.Utc),  
+                    v => DateTime.SpecifyKind(v, DateTimeKind.Utc)  
+                ));
+            }
+        }
 
         // Уникальный индекс для предотвращения дубликатов новостей
         modelBuilder.Entity<News>()
