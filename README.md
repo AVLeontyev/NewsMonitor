@@ -13,13 +13,16 @@
 - **Веб-интерфейс** на Vue.js 3 с SignalR-клиентом (опционально)
 
 ## Архитектура
+```
 Parser (Hangfire) → RabbitMQ (MassTransit) → Consumer → PostgreSQL
 ↕
 Vue.js SPA ← SignalR Hub ← API (REST + Swagger) ←─────────────┘
 ↕
 Elasticsearch + Kibana (логирование)
+```
 
 ## Структура проекта
+```
 news monitor/
 ├── docker-compose.yml # Оркестрация 8 сервисов
 ├── docker/postgres/init.sql # Инициализация схемы БД
@@ -49,6 +52,7 @@ news monitor/
 │ ├── views/ # HomeView, NewsView, TopicsView
 │ └── api/ # Axios клиенты
 └── package.json
+```
 
 ## Технологический стек
 
@@ -83,28 +87,36 @@ docker ps
 При первом запуске Docker автоматически скачает образы, соберёт .NET-приложения, создаст БД и таблицы.
 
 ##  Запуск фронтенда
+```
 powershell
 cd frontend
 npm install
 npm run dev
+```
 
 ##  Доступ к сервисам
+```
 Swagger	http://localhost:5269/swagger
 Hangfire	http://localhost:5269/hangfire
 RabbitMQ UI	http://localhost:15672
 Kibana	http://localhost:5601
 pgAdmin	http://localhost:5050
 Vue Frontend	http://localhost:5173
+```
 
 ##  Мониторинг и отладка
+```
 docker logs newsmonitor-api         # Логи API
 docker logs newsmonitor-parser      # Логи парсера
 docker logs newsmonitor-consumer    # Логи консьюмера
+```
 
 Логи также доступны в Kibana (индексы newsmonitor-api-*, newsmonitor-parser-*, newsmonitor-consumer-*).
 
 ## Примечания
+```
 Проект предназначен для демонстрации и локальной разработки
 Для production необходимо вынести пароли в .env, включить HTTPS, настроить авторизацию
 Парсер запускается при старте и далее каждые 10 минут через Hangfire
 Таблицы создаются автоматически при первом запуске через init.sql
+```
